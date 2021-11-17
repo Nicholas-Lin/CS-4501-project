@@ -1,0 +1,19 @@
+{
+  "name": "PrivaSee",
+  "description": "This extension will analyze trackers on websites",
+  "version": "1.0",
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "permissions": [
+    "storage",
+    "activeTab",
+    "<all_urls>",
+    "webRequest",
+    "webRequestBlocking"
+  ],
+  "browser_action": {
+    "default_popup": "popup.html"
+  }
+}
