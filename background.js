@@ -10,15 +10,24 @@
 // })
 // console.log(domain_patterns)
 
+var enabled = true;
+var data = {};
+
 function logURL(requestDetails) {
-  // initiator = requestDetails.initiator;
-  // url = requestDetails.url;
   // domain_patterns.forEach(function(domain){
   //     if(domain.test(url)){
   //       console.log("MATCH", url, host)
   //     }
   // })
-  console.log(requestDetails);
+
+  initiator = requestDetails.initiator;
+  url = requestDetails.url;
+  if (data[initiator]) {
+    data[initiator].push(url);
+  } else {
+    data[initiator] = [url];
+  }
+  console.log(data);
 }
 
 function cancel(requestDetails) {
