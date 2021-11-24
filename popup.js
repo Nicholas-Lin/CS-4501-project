@@ -22,9 +22,10 @@ window.onload = function () {
     let csvContent = "data:text/csv;charset=utf-8," 
     + csv_rows.map(e => e.join(",")).join("\n");
     var encodedUri = encodeURI(csvContent);
-    var link = document.getElementById('link');
+    var link = document.createElement("a");
     link.setAttribute("href", encodedUri);
     link.setAttribute("download", "data.csv");
+    link.click()
   }
 	updateLabel();
 }
