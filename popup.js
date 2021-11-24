@@ -1,13 +1,24 @@
 window.onload = function () {
-	function updateLabel() {
+	function updateExtensionLabel() {
 		var enabled = chrome.extension.getBackgroundPage().enabled;
-		document.getElementById('toggle_button').value = enabled ? "Disable" : "Enable";
+		document.getElementById('toggle_extension').value = enabled ? "Disable Extension" : "Enable Extension";
 	}
-	document.getElementById('toggle_button').onclick = function () {
+	document.getElementById('toggle_extension').onclick = function () {
 		var background = chrome.extension.getBackgroundPage();
 		background.enabled = !background.enabled;
-		updateLabel();
+		updateExtensionLabel();
 	};
+
+  function updateBlockingLabel() {
+		var blocking = chrome.extension.getBackgroundPage().blocking;
+		document.getElementById('toggle_blocking').value = blocking ? "Disable Blocking" : "Enable Blocking";
+	}
+	document.getElementById('toggle_blocking').onclick = function () {
+		var background = chrome.extension.getBackgroundPage();
+		background.blocking = !background.blocking;
+		updateBlockingLabel();
+	};
+
 
   document.getElementById('download-csv').onclick = function () {
     var background = chrome.extension.getBackgroundPage();
@@ -27,7 +38,8 @@ window.onload = function () {
     link.setAttribute("download", "data.csv");
     link.click()
   }
-	updateLabel();
+	updateExtensionLabel();
+  updateBlockingLabel();
 }
 
 

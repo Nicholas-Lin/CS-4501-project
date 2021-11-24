@@ -1,7 +1,7 @@
 // domain_patterns = blocked_domains.map((domain) => {
 //   try{
 //     const pattern = new URLPattern({
-//       hostname: domain,
+//       domain
 //     });
 //     return pattern;
 //   }catch(e){
@@ -11,6 +11,7 @@
 // console.log(domain_patterns)
 
 var enabled = true;
+var blocking = true;
 var data = {};
 
 function logURL(requestDetails) {
@@ -20,14 +21,17 @@ function logURL(requestDetails) {
   //     }
   // })
 
-  initiator = requestDetails.initiator;
-  url = requestDetails.url;
-  if (data[initiator]) {
-    data[initiator].push(url);
-  } else {
-    data[initiator] = [url];
+  if(enabled){
+    initiator = requestDetails.initiator;
+    url = requestDetails.url;
+    if (data[initiator]) {
+      data[initiator].push(url);
+    } else {
+      data[initiator] = [url];
+    }
+    console.log(data);
   }
-  console.log(data);
+  return {cancel: enabled };
 }
 
 function cancel(requestDetails) {
@@ -35,4 +39,4 @@ function cancel(requestDetails) {
   return { cancel: true };
 }
 
-chrome.webRequest.onBeforeRequest.addListener(logURL, { urls: blocked_domains }, ['blocking']);
+chrome.webRequest.onBeforeRequest.addListener(logURL, { urls: blocked_domains }, [blocking ? 'blocking' : '']);
