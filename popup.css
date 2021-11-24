@@ -1,0 +1,41 @@
+body {
+    background-color:  #002e35;
+    border: 2px solid #ffbd59;
+    padding: 20px;
+    width: 325px;
+    height: 250px;
+  }
+  h1 {
+    color: #5ec2d4;
+    font-family: Helvetica;
+    font-size: 300%;
+    
+  }
+  a {
+    color: white;
+    font-family: Helvetica;
+    font-size: 110%;
+  }
+  button {
+    background-color:  white;
+    border: 2px solid black;
+    font-size: 130%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+  input {
+    background-color:  white;
+    border: 2px solid black;
+    font-size: 130%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  }
+
+img {
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
