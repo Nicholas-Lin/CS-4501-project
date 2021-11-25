@@ -49,17 +49,17 @@ blocked_domains = []
 #     return rule
 
 
-with open('adblock.txt') as f:
+with open('easylist.txt') as f:
     for line in f:
         line = line.rstrip("\n")
-        if(line.startswith('||')):
-            host = line[2:-1]
-            host = "*://*." + line[2:-1] + "/*"
+        if(line.startswith('||') and line.find('^') > -1):
+            host = line[2:line.index('^')]
+            # host = "*://*." + line[2:line.index('^')] + "/*"
             # host = fnmatch.translate(host)
             # host = rule_to_regex(line)
             blocked_domains.append(host)
 
-with open('blocked_domains.js', 'w') as f:
+with open('blocked_domains_easy.js', 'w') as f:
     f.write("var blocked_domains = [\n")
     for host in blocked_domains:
         f.write("'" + host + "',\n")

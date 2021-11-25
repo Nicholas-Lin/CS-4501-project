@@ -4,7 +4,11 @@
   "version": "1.0",
   "manifest_version": 2,
   "background": {
-    "scripts": ["blocked_domains.js", "background.js"]
+    "scripts": ["blocked_domains.js", 
+                "blocked_domains_easy.js", 
+                "blocked_domains_glob.js", 
+                "blocked_domains_glob_easy.js", 
+                "background.js"]
   },
   "permissions": [
     "storage",
