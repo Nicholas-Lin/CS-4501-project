@@ -1,19 +1,109 @@
 <!DOCTYPE html>
-<html lang="en-US">
-  <head>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
-    <title>PrivaSee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 5 Simple Admin Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <link rel="stylesheet" href="popup.css">
-  </head>
-
-
-  <body>
-    <img src="logo.jpg"></img>
-    <h1 style = "text-align:center">PrivaSee Analyzer</h1>
-    <!--put the graph, top 3 trackers,  how many total websites were analyzed, and how many trackers were blocked-->
-    <input type="button" id="toggle_extension" value="Disable Extension" />
-    <input type="button" id="toggle_blocking" value="Disable Blocking" />
-    <button id="download-csv">Download CSV</button>
-    <script src="popup.js"></script>
-  </body>
+</head>
+<body>
+  <img src="logo.jpg"></img>
+            <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Overview</li>
+                    </ol>
+                </nav>
+                <h1 style = "text-align:center">PrivaSee Dashboard</h1>
+                <p></p>
+                <div class="row my-4">
+                    <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
+                        <div class="card">
+                            <h5 class="card-header">Number of Websites Visited</h5>
+                            <div class="card-body">
+                              <h5 class="card-title">100</h5>
+                              <p class="card-text">Feb 1 - Apr 1</p>
+                              <p class="card-text text-success">18.2% increase since last month</p>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
+                        <div class="card">
+                            <h5 class="card-header">Total Number of Trackers</h5>
+                            <div class="card-body">
+                              <h5 class="card-title">80</h5>
+                              <p class="card-text">Feb 1 - Apr 1</p>
+                              <p class="card-text text-success">4.6% increase since last month</p>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
+                        <div class="card">
+                            <h5 class="card-header">Total Number of Trackers Blocked</h5>
+                            <div class="card-body">
+                              <h5 class="card-title">43</h5>
+                              <p class="card-text">Feb 1 - Apr 1</p>
+                              <p class="card-text text-danger">2.6% decrease since last month</p>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
+                        <div class="card">
+                            <h5 class="card-header">How long PrivaSee was used?</h5>
+                            <div class="card-body">
+                              <h5 class="card-title">10 hours</h5>
+                              <p class="card-text">Feb 1 - Apr 1</p>
+                              <p class="card-text text-success">2.5% increase since last month</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 col-xl-8 mb-4 mb-lg-0">
+                        <div class="card">
+                            <h5 class="card-header">Tracker Details</h5>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                          <tr>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Website</th>
+                                            <th scope="col">Tracker</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col"></th>
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <th scope="row">Aug 31 2020</th>
+                                            <td>youtube.com</td>
+                                            <td>doubleclick.net</td>
+                                            <td>2</td>
+                                            <td><a href="#" class="btn btn-sm btn-primary">Block</a></td>
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-xl-4">
+                        <div class="card">
+                            <h5 class="card-header">Settings</h5>
+                            <div class="card-body">
+                              <input type="button" id="toggle_extension" value="Disable Extension" />
+                              <input type="button" id="toggle_blocking" value="Disable Blocking" />
+                              <input type="button" id="download-csv" value="Download CSV"/>
+                              <script src="popup.js"></script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
 </html>
