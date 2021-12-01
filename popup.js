@@ -6,8 +6,10 @@ window.onload = function () {
 
   // Getting the current URL
   chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
-    var url = tabs[0].url;
-    console.log(url);
+    var tab = tabs[0];
+    var url = new URL(tab.url)
+    var domain = url.hostname
+    console.log(domain)
   });
 
 
