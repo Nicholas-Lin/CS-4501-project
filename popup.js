@@ -3,6 +3,14 @@ window.onload = function () {
 		var enabled = chrome.extension.getBackgroundPage().enabled;
 		document.getElementById('toggle_extension').value = enabled ? "Disable Extension" : "Enable Extension";
 	}
+
+  // Getting the current URL
+  chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+    var url = tabs[0].url;
+    console.log(url);
+  });
+
+
 	document.getElementById('toggle_extension').onclick = function () {
 		var background = chrome.extension.getBackgroundPage();
 		background.enabled = !background.enabled;
@@ -13,6 +21,7 @@ window.onload = function () {
 		var blocking = chrome.extension.getBackgroundPage().blocking;
 		document.getElementById('toggle_blocking').value = blocking ? "Disable Blocking" : "Enable Blocking";
 	}
+
 	document.getElementById('toggle_blocking').onclick = function () {
 		var background = chrome.extension.getBackgroundPage();
 		background.blocking = !background.blocking;

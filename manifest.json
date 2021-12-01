@@ -14,6 +14,7 @@
     "storage",
     "activeTab",
     "<all_urls>",
+    "tabs",
     "webRequest",
     "webRequestBlocking"
   ],
