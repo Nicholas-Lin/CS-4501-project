@@ -10,6 +10,13 @@ h1 {
   font-size: 200%;
   font-weight: bold;
 }
+
+h2 {
+  color: white;
+  font-family: Helvetica;
+  font-size: 150%;
+  font-weight: bold;
+}
 input {
   background-color:  white;
   border: 2px solid black;
@@ -64,4 +71,20 @@ img {
 
 .sidebar .nav-link.active {
   color: #0d6efd;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  color: white;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+a {
+  color: white;
 }
