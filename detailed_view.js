@@ -7,7 +7,3 @@ window.onload = function () {
     console.log(domain)
   });
 }
-
-
-
-
