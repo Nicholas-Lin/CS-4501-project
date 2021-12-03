@@ -9,7 +9,6 @@ const domain_patterns = blocked_domains_easy.map((domain) => {
     console.error(e)
   }
 })
-// console.log(domain_patterns)
 
 function logURL(requestDetails) {
   const url = requestDetails.url;
