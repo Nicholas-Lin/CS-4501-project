@@ -28,13 +28,22 @@ window.onload = function () {
         }
       }
     }
-    for (key in counts){
-    var table = document.getElementById("myTable");
+    
+    var sort_counts = Object.keys(counts).map(function(key) {
+      return [key, counts[key]];
+    });
+
+    sort_counts.sort(function(first, second) {
+      return first[1] - second[1];
+    });
+
+    for (key in sort_counts){
+      var table = document.getElementById("myTable");
       var row = table.insertRow(1);
       var cell1 = row.insertCell(0);
       var cell2 = row.insertCell(1);
-      cell1.innerHTML = key;
-      cell2.innerHTML = counts[key];
+      cell1.innerHTML = sort_counts[key][0];
+      cell2.innerHTML = sort_counts[key][1];
     }
   });
 }
