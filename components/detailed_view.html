@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+    integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="popup.html">Simple View</a></li>
+        <li><a href="detailed_view.html">Detailed View</a></li>
+        <li><a href="settings.html">Settings</a></li>
+      </ul>
+    </nav>
+  </header>
+  <img src="/images/logo.jpg"></img>
+  <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
+    <h1 style="text-align:center">PrivaSee Dashboard</h1>
+  </main>
+  <h2>Detailed View</h2>
+  <div class="row my-4">
+    <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
+      <div class="card">
+        <h5 class="card-header">Number of Websites Visited</h5>
+        <div class="card-body">
+          <h5 class="card-title">100</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
+      <div class="card">
+        <h5 class="card-header">Total Number of Trackers</h5>
+        <div class="card-body">
+          <h5 class="card-title">80</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
+      <div class="card">
+        <h5 class="card-header">Total Number of Trackers Blocked</h5>
+        <div class="card-body">
+          <h5 class="card-title">43</h5>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-6 mb-4 mb-lg-0 col-lg-3">
+      <div class="card">
+        <h5 class="card-header">How long PrivaSee was used?</h5>
+        <div class="card-body">
+          <h5 class="card-title">10 hours</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-xl-8 mb-4 mb-lg-0">
+      <div class="card">
+        <h5 class="card-header">Tracker Details</h5>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Website</th>
+                  <th scope="col">Tracker</th>
+                  <th scope="col">Total</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">www.youtube.com</th>
+                  <td>doubleclick.ner</td>
+                  <td>doubleclick.net</td>
+                  <td>2</td>
+                  <td><a href="#" class="btn btn-sm btn-primary">Block</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="../js/detailed_view.js"></script>
+</body>
