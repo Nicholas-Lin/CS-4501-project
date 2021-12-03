@@ -2,7 +2,9 @@ function get_domain_counts(domain) {
   var counts = {}
   data = chrome.extension.getBackgroundPage().data
   domain_data = data[domain];
-  domain_data.forEach(tracker => tracker[0] in counts ? counts[tracker[0]] += 1 : counts[tracker[0]] = 1);
+  if (domain_data != undefined) {
+    domain_data.forEach(tracker => tracker[0] in counts ? counts[tracker[0]] += 1 : counts[tracker[0]] = 1);
+  }
   return counts;
 }
 
