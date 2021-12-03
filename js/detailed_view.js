@@ -1,32 +1,25 @@
-window.onload = function () {
-  var background = chrome.extension.getBackgroundPage();
-  data = background.data
-  var csv_rows = [];
+function get_counts() {
+  var counts = {}
+  data = chrome.extension.getBackgroundPage().data;
   for (const [initiator, trackers] of Object.entries(data)) {
     trackers.forEach(tracker => {
-      csv_rows.push([initiator, tracker])
+      tracker[0] in counts ? counts[tracker[0]] += 1 : counts[tracker[0]] = 1;
     });
   }
-  counts = {};
-  for (let i=0; i<csv_rows.length; i++){
-      var tracker= (csv_rows[i][1]).toString().substr(0, csv_rows[i][1].toString().indexOf(',')); 
-      if (tracker in counts){
-        counts[tracker] +=1;
-      }
-      else{
-        counts[tracker]=1;
-      }
-  }
-  
-  var sort_counts = Object.keys(counts).map(function(key) {
+  return counts;
+}
+
+window.onload = function () {
+  counts = get_counts();
+  var sort_counts = Object.keys(counts).map(function (key) {
     return [key, counts[key]];
   });
 
-  sort_counts.sort(function(first, second) {
+  sort_counts.sort(function (first, second) {
     return first[1] - second[1];
   });
 
-  for (key in sort_counts){
+  for (key in sort_counts) {
     var table = document.getElementById("myTable");
     var row = table.insertRow(1);
     var cell1 = row.insertCell(0);
@@ -35,18 +28,13 @@ window.onload = function () {
     cell2.innerHTML = sort_counts[key][1];
   }
 
-  websites=[];
-  for (let i = 0; i<csv_rows.length; i++){
-    websites.push(csv_rows[i][0]);
-  }  
-  function onlyUnique(value, index, self) {
-    return self.indexOf(value) === index;
+  data = chrome.extension.getBackgroundPage().data;
+  total_websites = Object.keys(data).length;
+  total_trackers = 0;
+  for (const [filter, count] of Object.entries(counts)) {
+    total_trackers += count;
   }
 
-  var unique = websites.filter(onlyUnique);
-
-  unique = websites.filter((item, i, ar) => ar.indexOf(item) === i);
-  document.getElementById("totalWebsites").innerHTML = unique.length;
-  totTrack=csv_rows.length;
-  document.getElementById("totalTrackers").innerHTML = totTrack;
+  document.getElementById("totalWebsites").innerHTML = total_websites;
+  document.getElementById("totalTrackers").innerHTML = total_trackers;
 }

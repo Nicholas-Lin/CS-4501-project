@@ -2,10 +2,10 @@ var enabled = true;
 var blocking = true;
 var data = {};
 const domain_patterns = blocked_domains_easy.map((domain) => {
-  try{
-    const pattern = new URLPattern({hostname: '{*.}?' + domain,});
+  try {
+    const pattern = new URLPattern({ hostname: '{*.}?' + domain, });
     return pattern;
-  }catch(e){
+  } catch (e) {
     console.error(e)
   }
 })
@@ -15,15 +15,15 @@ function logURL(requestDetails) {
   const url = requestDetails.url;
   var filter_match;
 
-  for(const domain of domain_patterns){
-    if(domain.test(url)){
+  for (const domain of domain_patterns) {
+    if (domain.test(url)) {
       filter_match = domain.hostname.substring(5);
       break;
     }
   }
 
-  if(enabled){
-    initiator = requestDetails.initiator;
+  if (enabled) {
+    initiator = (new URL(requestDetails.initiator)).hostname;
     if (data[initiator]) {
       data[initiator].push([filter_match, url]);
     } else {
@@ -31,7 +31,7 @@ function logURL(requestDetails) {
     }
     console.log(data);
   }
-  return {cancel: enabled };
+  return { cancel: enabled };
 }
 
 function cancel(requestDetails) {

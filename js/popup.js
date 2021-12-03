@@ -1,43 +1,27 @@
-window.onload = function () {
-  // Getting the current domain
+function get_domain_counts(domain) {
+  var counts = {}
+  data = chrome.extension.getBackgroundPage().data
+  domain_data = data[domain];
+  domain_data.forEach(tracker => tracker[0] in counts ? counts[tracker[0]] += 1 : counts[tracker[0]] = 1);
+  return counts;
+}
 
-  domain = "";
-  chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+window.onload = function () {
+
+  // Getting the current domain
+  chrome.tabs.query({ 'active': true, 'lastFocusedWindow': true }, function (tabs) {
     var tab = tabs[0];
-    var url = new URL(tab.url)
-    domain = url.hostname
-    console.log(domain)
+    var url = new URL(tab.url);
+    domain = url.hostname;
     document.getElementById("current_website").innerHTML = "Current Website: " + domain;
-    var background = chrome.extension.getBackgroundPage();
-    data = background.data
-    var csv_rows = [];
-    for (const [initiator, trackers] of Object.entries(data)) {
-      trackers.forEach(tracker => {
-        csv_rows.push([initiator, tracker])
-      });
-    }
-    counts = {};
-    for (let i=0; i<csv_rows.length; i++){
-      if ("https://"+domain == csv_rows[i][0]){
-        var tracker= (csv_rows[i][1]).toString().substr(0, csv_rows[i][1].toString().indexOf(',')); 
-        if (tracker in counts){
-          counts[tracker] +=1;
-        }
-        else{
-          counts[tracker]=1;
-        }
-      }
-    }
-    
-    var sort_counts = Object.keys(counts).map(function(key) {
+    counts = get_domain_counts(domain);
+    var sort_counts = Object.keys(counts).map(function (key) {
       return [key, counts[key]];
     });
-
-    sort_counts.sort(function(first, second) {
+    sort_counts.sort(function (first, second) {
       return first[1] - second[1];
     });
-
-    for (key in sort_counts){
+    for (key in sort_counts) {
       var table = document.getElementById("myTable");
       var row = table.insertRow(1);
       var cell1 = row.insertCell(0);
