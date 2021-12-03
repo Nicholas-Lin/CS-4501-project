@@ -16,7 +16,7 @@ window.onload = function () {
         csv_rows.push([initiator, tracker])
       });
     }
-    counts = {"": 0};
+    counts = {};
     for (let i=0; i<csv_rows.length; i++){
       if ("https://"+domain == csv_rows[i][0]){
         var tracker= (csv_rows[i][1]).toString().substr(0, csv_rows[i][1].toString().indexOf(',')); 
@@ -27,13 +27,14 @@ window.onload = function () {
           counts[tracker]=1;
         }
       }
-      document.getElementById("current_tracker_count").innerHTML = counts[tracker];
-      document.getElementById("current_tracker").innerHTML = tracker;
     }
-    
+    for (key in counts){
+    var table = document.getElementById("myTable");
+      var row = table.insertRow(1);
+      var cell1 = row.insertCell(0);
+      var cell2 = row.insertCell(1);
+      cell1.innerHTML = key;
+      cell2.innerHTML = counts[key];
+    }
   });
-
-  
-  
-  
 }
