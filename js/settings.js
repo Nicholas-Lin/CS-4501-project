@@ -24,7 +24,7 @@ window.onload = function () {
   document.getElementById('download-csv').onclick = function () {
     var background = chrome.extension.getBackgroundPage();
     data = background.data
-    csv_rows = [['Initiating URL', 'Matched Filter', 'Requested URL']]
+    csv_rows = [['Initiating URL', 'Matched Filter', 'Requested URL', 'Timestamp']]
     for (const [initiator, trackers] of Object.entries(data)) {
       trackers.forEach(tracker => {
         csv_rows.push([initiator, tracker])
