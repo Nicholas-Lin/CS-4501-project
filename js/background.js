@@ -22,11 +22,12 @@ function logURL(requestDetails) {
   }
 
   if (enabled) {
-    initiator = (new URL(requestDetails.initiator)).hostname;
+    const initiator = (new URL(requestDetails.initiator)).hostname;
+    const time_stamp = new Date(requestDetails.timeStamp);
     if (data[initiator]) {
-      data[initiator].push([filter_match, url]);
+      data[initiator].push([filter_match, url, time_stamp]);
     } else {
-      data[initiator] = [[filter_match, url]];
+      data[initiator] = [[filter_match, url, time_stamp]];
     }
     console.log(data);
   }
