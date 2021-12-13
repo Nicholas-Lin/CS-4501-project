@@ -24,12 +24,15 @@
     <h1 style="text-align:center">PrivaSee Dashboard</h1>
   </main>
   <h2>Detailed View</h2>
+  <div>
+    <canvas id="myChart"></canvas>
+  </div>
   <div class="row my-4">
     <div class="col-12 col-md-6 col-lg-3 mb-4 mb-lg-0">
       <div class="card">
         <h5 class="card-header">Number of Websites Visited</h5>
         <div class="card-body">
-          <h5 class="card-title" id = "totalWebsites"></h5>
+          <h5 class="card-title" id="totalWebsites"></h5>
         </div>
       </div>
     </div>
@@ -48,7 +51,7 @@
         <h5 class="card-header">Tracker Details</h5>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table" id = "myTable">
+            <table class="table" id="myTable">
               <thead>
                 <tr>
                   <th scope="col">Tracker</th>
@@ -64,4 +67,5 @@
     </div>
   </div>
   <script src="../js/detailed_view.js"></script>
+  <script src="../js/chart.min.js"></script>
 </body>
