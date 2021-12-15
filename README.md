@@ -7,7 +7,7 @@
 </p>
 
 
-## A Chrome extension to 
+## Our Project
 This Chrome extension presents users with information on the trackers that are collecting their data.
 
 ### Problem 
