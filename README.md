@@ -14,6 +14,7 @@ This Chrome extension presents users with information on the trackers that are c
 * Data collected by trackers is not always anonymous but oftentimes user behavior can be analyzed to deanonymize users
 * Internet tracking has become standard practice across web pages, however there is a significant lack of transparency in the process
 * Users are not even aware of who is receiving their data
+* Sources:
 [(Source 1)](https://blog.mozilla.org/en/internet-culture/mozilla-explains/what-is-a-web-tracker/)
 [(Source 2)](https://choosetoencrypt.com/search-encrypt/internet-tracking-why-its-bad-and-how-to-avoid-it/)
 
