@@ -389,7 +389,7 @@ var blocked_domains_whois_easy = {
     'amadagasca.com': 'Super Domains Privacy LLC',
     'amata-syb.com': 'Whois Privacy Service',
     'amavirgin.pro': 'Above.com Domain Privacy',
-    'amazon-adsystem.com': 'Amazon Technologies, Inc.',
+    'amazon-adsystem.com': 'Amazon.com, Inc.',
     'amgdgt.com': 'Amobee Inc',
     'amexcadrillon.com': 'GLOBAL DOMAIN PRIVACY SERVICES INC',
     'amerallyluke.club': 'Privacy service provided by Withheld for Privacy ehf',
@@ -5681,7 +5681,7 @@ var blocked_domains_whois_easy = {
     'tillertag-a.akamaihd.net': 'Akamai Technologies, inc.',
     'tags.sprizzy.com': 'Privacy service provided by Withheld for Privacy ehf',
     'web.adblade.com': 'Congoo, LLC',
-    'video-ads.a2z.com': 'Amazon Technologies, Inc.',
+    'video-ads.a2z.com': 'Amazon.com, Inc.',
     'widenetworks.net': 'DATA REDACTED',
     'widget.searchschoolsnetwork.com': 'EducationDynamics, LLC',
     'weby.aaas.org': 'AAAS',
@@ -6061,7 +6061,7 @@ var blocked_domains_whois_easy = {
     '360yield.com': 'Whois Privacy Service',
     'adition.com': 'Virtual Minds AG',
     'adsafeprotected.com': 'Integral Ad Science, Inc.',
-    'amazon-adsystem.com': 'Amazon Technologies, Inc.',
+    'amazon-adsystem.com': 'Amazon.com, Inc.',
     'moviewatcher.is': 'OV37-IS',
     'adform.net': 'Jewella Privacy LLC Privacy ID# 10439376',
     'imasdk.googleapis.com': 'Google LLC',
@@ -6071,7 +6071,7 @@ var blocked_domains_whois_easy = {
     'inforsea.com': 'Privacy Protect Service',
     'vi-serve.com': 'Privacy Protect Service',
     'yieldlab.net': 'Yieldlab AG',
-    'amazon-adsystem.com': 'Amazon Technologies, Inc.',
+    'amazon-adsystem.com': 'Amazon.com, Inc.',
     'ced.sascdn.com': 'Smartadserver',
     'bitcoins-update.blogspot.com': 'Google LLC',
     'csgfst.com': 'GLOBAL DOMAIN PRIVACY SERVICES INC',
@@ -6089,5 +6089,4 @@ var blocked_domains_whois_easy = {
     'smartblocker.org': 'Moniker Privacy Services',
     'teenspirithentai.com': 'See PrivacyGuardian.org',
     'doubleclick.net': 'Google LLC'
-
 };
