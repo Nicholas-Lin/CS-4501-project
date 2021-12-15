@@ -41,4 +41,8 @@ function cancel(requestDetails) {
   return { cancel: true };
 }
 
+function reset_stats() {
+  data = {}
+}
+
 chrome.webRequest.onBeforeRequest.addListener(logURL, { urls: blocked_domains_glob_easy }, [blocking ? 'blocking' : '']);

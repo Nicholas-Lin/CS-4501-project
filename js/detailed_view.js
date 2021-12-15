@@ -39,7 +39,7 @@ window.onload = function () {
 
   owner = get_trackerOwner();
   for (key in sort_counts) {
-    if (sort_counts[key][0] in owner){
+    if (sort_counts[key][0] in owner) {
       sort_counts[key][2] = owner[sort_counts[key][0]]
     }
     var table = document.getElementById("myTable");
@@ -91,7 +91,7 @@ window.onload = function () {
     data: {
       labels: time_temp,
       datasets: [{
-        label: 'Number of Trackers Per Minute',
+        label: 'Number of Tracker Requests Per Minute',
         data: ct,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',

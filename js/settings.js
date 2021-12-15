@@ -40,6 +40,12 @@ window.onload = function () {
     link.setAttribute("download", "data.csv");
     link.click()
   }
+
+  document.getElementById('reset-stats').onclick = function () {
+    var background = chrome.extension.getBackgroundPage();
+    background.reset_stats();
+  }
+
   updateExtensionLabel();
   updateBlockingLabel();
 }
