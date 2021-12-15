@@ -18,15 +18,24 @@ def write_to_file(name, data):
         f.write("];")
 
 
-def get_whois(host, file_object):
+def get_whois_wrapped(host):
+    try:
+        get_whois(host)
+    except:
+        print('FAIL AT WRAP')
+
+
+def get_whois(host):
     status()
     print("working on " + host)
     try:
         domain = whois.query(host)
         if domain.registrant != '' and domain.registrant != 'REDACTED FOR PRIVACY':
             blocked_domains_whois.append([host, domain.registrant])
-            file_object.write(
-                "'" + host + "': '" + domain.registrant + "',\n")
+            with open("test.js", "a") as file_object:
+                file_object.write(
+                    "'" + host + "': '" + domain.registrant + "',\n")
+                file_object.close()
     except:
         print("FAIL: " + host)
     finally:
@@ -53,18 +62,18 @@ with open('easylist.txt') as f:
 write_to_file('blocked_domains_easy', blocked_domains)
 write_to_file('blocked_domains_glob_easy', blocked_globs)
 
-bad_hosts = ['img.servint.net', 'adalliance.io']
+bad_hosts = ['img.servint.net']
 pool = Pool(30)
-with open("test.js", "a") as file_object:
-    for host in blocked_domains:
-        if host in bad_hosts:
-            continue
-        pool.apply_async(
-            get_whois,
-            args=(host, file_object,)
-        )
-    pool.close()
-    pool.join()
+# blocked_domains = blocked_domains[-10:]
+for host in blocked_domains:
+    if host in bad_hosts:
+        continue
+    pool.apply_async(
+        get_whois_wrapped,
+        args=(host,)
+    )
+pool.close()
+pool.join()
 
 
 with open('blocked_domains_whois_easy.js', 'w') as f:
