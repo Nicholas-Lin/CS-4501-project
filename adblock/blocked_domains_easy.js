@@ -19377,6 +19377,7 @@ var blocked_domains_easy = [
     'dmxleo.dailymotion.com',
     'engagesrvr.filefactory.com',
     'engine.laweekly.com',
+    'facebook.com',
     'gamer.mmohuts.com',
     'gold-splits.speedrun.com',
     'hawk.pcgamer.com',
