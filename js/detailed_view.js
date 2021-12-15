@@ -75,8 +75,7 @@ window.onload = function () {
   ct = [];
   var previous = 0;
   for (let i = 0; i < time_temp.length; i++) {
-    ct[i] = getOccurrence(time, time_temp[i]) + previous
-    previous = ct[i]
+    ct[i] = getOccurrence(time, time_temp[i])
   }
 
   time_counts = []
