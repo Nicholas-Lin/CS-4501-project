@@ -47,11 +47,10 @@ window.onload = function () {
 
   var time = [];
   for (const [initiator, trackers] of Object.entries(data)) {
-    trackers.forEach(timestamp => {
-      t = timestamp[3]
-      h = t.getHours();
-      m = t.getMinutes();
-      time.push(h + ":" + m)
+    trackers.forEach(tracker => {
+      t = tracker[3]
+      t = t.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      time.push(t)
     });
   }
 
@@ -69,12 +68,13 @@ window.onload = function () {
   }
 
   const ctx = document.getElementById('myChart');
+
   const myChart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: time_temp,
       datasets: [{
-        label: '# of Trackers Per Minute',
+        label: 'Number of Trackers Per Minute',
         data: ct,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',
@@ -96,9 +96,29 @@ window.onload = function () {
       }]
     },
     options: {
+      plugins: {  // 'legend' now within object 'plugins {}'
+        legend: {
+          labels: {
+            color: "white",  // not 'fontColor:' anymore
+          }
+        }
+      },
       scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Time',
+            color: "white"
+          },
+          ticks: {
+            color: "white"
+          }
+        },
         y: {
-          beginAtZero: true
+          beginAtZero: true,
+          ticks: {
+            color: "white"
+          }
         }
       }
     }
