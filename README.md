@@ -9,6 +9,7 @@
 
 ## Our Project
 This Chrome extension presents users with information on the trackers that are collecting their data.
+![Detailed View](https://github.com/Nicholas-Lin/CS-4501-project/blob/main/images/detailed_view.png)
 
 ### Problem 
 * Data collected by trackers is not always anonymous but oftentimes user behavior can be analyzed to deanonymize users
