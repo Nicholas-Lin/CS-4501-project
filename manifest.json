@@ -6,6 +6,7 @@
   "background": {
     "scripts": [
       "/adblock/blocked_domains_easy.js",
+      "/adblock/blocked_domains_whois_easy.js",
       "/adblock/blocked_domains_glob_easy.js",
       "/js/background.js"
     ]

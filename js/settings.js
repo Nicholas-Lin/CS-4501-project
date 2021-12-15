@@ -24,10 +24,11 @@ window.onload = function () {
   document.getElementById('download-csv').onclick = function () {
     var background = chrome.extension.getBackgroundPage();
     data = background.data
-    csv_rows = [['Initiating URL', 'Matched Filter', 'Requested URL', 'Timestamp']]
+    csv_rows = [['Initiating URL', 'Matched Filter', 'Domain Registrant (WHOIS)', 'Requested URL', 'Timestamp']]
     for (const [initiator, trackers] of Object.entries(data)) {
       trackers.forEach(tracker => {
-        csv_rows.push([initiator, tracker])
+        registrant = tracker[1].replace(',', '')
+        csv_rows.push([initiator, tracker[0], registrant, tracker[2], tracker[3]])
       });
     }
     console.log(csv_rows)

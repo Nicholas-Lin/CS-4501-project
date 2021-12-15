@@ -16,8 +16,8 @@ function getOccurrence(array, value) {
 }
 
 window.onload = function () {
-  
-counts = get_counts();
+
+  counts = get_counts();
   var sort_counts = Object.keys(counts).map(function (key) {
     return [key, counts[key]];
   });
@@ -45,27 +45,27 @@ counts = get_counts();
   document.getElementById("totalWebsites").innerHTML = total_websites;
   document.getElementById("totalTrackers").innerHTML = total_trackers;
 
-  var time=[];
+  var time = [];
   for (const [initiator, trackers] of Object.entries(data)) {
     trackers.forEach(timestamp => {
-      t= timestamp[2]
-      h=t.getHours();
-      m=t.getMinutes();
-      time.push(h+":"+m)
+      t = timestamp[3]
+      h = t.getHours();
+      m = t.getMinutes();
+      time.push(h + ":" + m)
     });
   }
 
   time_temp = time.filter((item, i, ar) => ar.indexOf(item) === i);
-  ct=[];
-  var previous=0;
+  ct = [];
+  var previous = 0;
   for (let i = 0; i < time_temp.length; i++) {
-      ct[i] = getOccurrence(time, time_temp[i]) + previous
-      previous = ct[i] 
-    }
+    ct[i] = getOccurrence(time, time_temp[i]) + previous
+    previous = ct[i]
+  }
 
-  time_counts=[]
+  time_counts = []
   for (let i = 0; i < time_temp.length; i++) {
-    time_counts.push({x: time_temp[i], y: ct[i]})
+    time_counts.push({ x: time_temp[i], y: ct[i] })
   }
 
   const ctx = document.getElementById('myChart');

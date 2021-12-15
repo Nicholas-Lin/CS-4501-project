@@ -23,11 +23,13 @@ function logURL(requestDetails) {
 
   if (enabled) {
     const initiator = (new URL(requestDetails.initiator)).hostname;
+    var domain_registrant = blocked_domains_whois_easy[filter_match];
+    if (domain_registrant == undefined) domain_registrant = 'unavailable';
     const time_stamp = new Date(requestDetails.timeStamp);
     if (data[initiator]) {
-      data[initiator].push([filter_match, url, time_stamp]);
+      data[initiator].push([filter_match, domain_registrant, url, time_stamp]);
     } else {
-      data[initiator] = [[filter_match, url, time_stamp]];
+      data[initiator] = [[filter_match, domain_registrant, url, time_stamp]];
     }
     console.log(data);
   }
