@@ -9,6 +9,17 @@ function get_counts() {
   return counts;
 }
 
+function get_trackerOwner() {
+  var owner = {}
+  data = chrome.extension.getBackgroundPage().data;
+  for (const [initiator, trackers] of Object.entries(data)) {
+    trackers.forEach(tracker => {
+      owner[tracker[0]] = tracker[1];
+    });
+  }
+  return owner;
+}
+
 function getOccurrence(array, value) {
   var count = 0;
   array.forEach((v) => (v === value && count++));
@@ -26,13 +37,19 @@ window.onload = function () {
     return first[1] - second[1];
   });
 
+  owner = get_trackerOwner();
   for (key in sort_counts) {
+    if (sort_counts[key][0] in owner){
+      sort_counts[key][2] = owner[sort_counts[key][0]]
+    }
     var table = document.getElementById("myTable");
     var row = table.insertRow(1);
     var cell1 = row.insertCell(0);
     var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
     cell1.innerHTML = sort_counts[key][0];
-    cell2.innerHTML = sort_counts[key][1];
+    cell2.innerHTML = sort_counts[key][2];
+    cell3.innerHTML = sort_counts[key][1];
   }
 
   data = chrome.extension.getBackgroundPage().data;
