@@ -62,9 +62,12 @@ with open('easylist.txt') as f:
 write_to_file('blocked_domains_easy', blocked_domains)
 write_to_file('blocked_domains_glob_easy', blocked_globs)
 
+# Note that this program will freeze as it approaches 100%.
+# At this point terminate the program and copy test.js into a javascript object
+# var = blocked_domains_whois_easy {...} in a file called "blocked_domains_whois_easy.js"
+
 bad_hosts = ['img.servint.net']
 pool = Pool(30)
-# blocked_domains = blocked_domains[-10:]
 for host in blocked_domains:
     if host in bad_hosts:
         continue
