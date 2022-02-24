@@ -1,4 +1,4 @@
-# CS-4501-project 
+# PrivaSee Adblocker Chrome Extension
 <p align="center">
     <img src="https://github.com/Nicholas-Lin/CS-4501-project/blob/main/images/logo.jpg" width="150">
   </a>
@@ -8,7 +8,7 @@
 
 
 ## Our Project
-This Chrome extension presents users with information on the trackers that are collecting their data.
+This Chrome extension presents users with information on the trackers that are collecting their data. This project was developed as part of CS 4501: Privacy in the Internet Age at UVA.
 ![Detailed View](https://github.com/Nicholas-Lin/CS-4501-project/blob/main/images/detailed_view.png)
 
 ### Installation
